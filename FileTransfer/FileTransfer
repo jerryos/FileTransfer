@@ -1,0 +1,35 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: hejie <hejie@hejie.ustcsz.edu.cn>
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   README
+#	new file:   client/Makefile
+#	new file:   client/client.c
+#	new file:   client/createfile/create1G
+#	new file:   client/createfile/create512M
+#	new file:   client/createfile/file_ctl.c
+#	new file:   client/createfile/file_ctl.h
+#	new file:   client/createfile/file_ctl_test.c
+#	new file:   client/tpool.c
+#	new file:   client/tpool.h
+#	new file:   client/work.c
+#	new file:   client/work.h
+#	new file:   server/Makefile
+#	new file:   server/args
+#	new file:   server/server.c
+#	new file:   server/shell
+#	new file:   server/tpool.c
+#	new file:   server/tpool.h
+#	new file:   server/work.c
+#	new file:   server/work.h
+#	new file:   "server\346\236\266\346\236\204.jpeg"
+#	new file:   "\346\274\224\347\244\272.ppt"
+#
+

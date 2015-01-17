@@ -1,0 +1,11 @@
+Server：EPOLL + 线程池
+Client：多线程
+
+架构：		  
+Client（多线程） ----------> Server（EPOLL+线程池）
+
+1.支持多客户同时上传文件，每个文件由多个线程负责传送
+2.Server可以调节Thread pool大小
+3.每个Client和Server都建立单独的信息交换socket，独立于数据块传送socket，用于交换控制信息，直到文件传输结束
+4.Server支持多种类型，有独立的Server Type字段，用于表示Client传送数据类型（Server以此为判断提供不同服务），可以扩展Server的功能，提供文件服务以外的服务
+5.线程池封装好的，直接可以include头文件，提供三个接口

@@ -1,0 +1,4 @@
+sudo chmod 777 /etc/sysctl.conf
+sudo cat args >>/etc/sysctl.conf
+sudo chmod 644 /etc/sysctl.conf
+sudo sysctl -p
