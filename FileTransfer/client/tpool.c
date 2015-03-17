@@ -21,13 +21,13 @@ static void* thread_routine(void *arg)
     tpool_work_t *work;
 
     while(1) {
-        /* 如果线程池没有被销毁,并且任务队列为空，阻塞线程，等待任务 */
+        /* 如果任务队列为空,且线程池未关闭，线程阻塞等待任务 */
         pthread_mutex_lock(&tpool->queue_lock);
         while(!tpool->queue_head && !tpool->shutdown) {
             pthread_cond_wait(&tpool->queue_ready, &tpool->queue_lock);
         }
 
-		/*查看线程池开关，如果线程池被销毁，线程退出*/
+		/*查看线程池开关，如果线程池关闭，线程退出*/
         if (tpool->shutdown) {
             pthread_mutex_unlock(&tpool->queue_lock);
             pthread_exit(NULL);
@@ -40,10 +40,10 @@ static void* thread_routine(void *arg)
         work->routine(work->arg);
 
 		/*线程完成任务后，释放任务*/
-        free(work->arg);
+		free(work->arg);
         free(work);
     }
-    return NULL;
+    return NULL; 
 }
 
 /* 创建线程池 */
@@ -118,6 +118,7 @@ void tpool_destroy()
     while(tpool->queue_head) {
         member = tpool->queue_head;
         tpool->queue_head = tpool->queue_head->next;
+		free(member->arg);
         free(member);
     }
 
